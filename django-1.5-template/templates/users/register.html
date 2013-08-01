@@ -1,0 +1,47 @@
+{% extends "outside.html" %}
+
+{% load i18n %}
+
+{% block head %}
+	{{ block.super }}
+
+	<script src="/static/js/datepicker.js"></script>
+	<link href="/static/css/datepicker.css" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	{% if form.non_field_errors %}
+		<div class="alert">
+			<button href="#" type="button" class="close" data-dismiss="alert">&times;</button>
+			{{ form.non_field_errors }}
+		</div>
+	{% endif %}
+	<form enctype="multipart/form-data" action="{% url 'register' %}" method="post" class="form-signin">
+		{% csrf_token %}
+		<h2 class="form-signin-heading">Usual stuff:</h2>
+		{{ form.errors.username|striptags }}
+		{{ form.username }}
+
+		{{ form.errors.email|striptags }}
+		{{ form.email }}
+
+		{{ form.errors.password|striptags }}
+		{{ form.password }}
+
+		{{ form.errors.password_match|striptags }}
+		{{ form.password_match }}
+
+		{{ form.errors.dob|striptags }}
+		{{ form.dob }}
+
+		<button class="btn btn-large btn-primary" type="submit">{% trans 'Register' %}</button>
+
+		<script type="text/javascript">
+			$('#id_dob').datepicker({format: 'mm/dd/yyyy', autohide: true}).on('changeDate', function(ev) {
+				$('#id_dob').datepicker('hide');
+    		});
+		</script>
+	</form>
+</div>
+{% endblock %}

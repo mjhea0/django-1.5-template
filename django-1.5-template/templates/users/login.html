@@ -1,0 +1,40 @@
+{% extends "outside.html" %}
+
+{% load i18n %}
+
+{% block content %}
+<div class="container">
+	{% if form.errors %}
+		<div class="alert alert-error">
+			<button href="#" type="button" class="close" data-dismiss="alert">&times;</button>
+			{{ form.non_field_errors|striptags }}
+		</div>
+	{% endif %}
+
+	{% if messages %}
+		<ul class="alert">
+			<button href="#" type="button" class="close" data-dismiss="alert">&times;</button>
+			{% for message in messages %}
+				{{ message|striptags }}
+			{% endfor %}
+		</ul>
+	{% endif %}
+
+	<form action="{{ app_path }}" method="post" class="form-signin">
+		{% csrf_token %}
+		<h2 class="form-signin-heading">Please sign in</h2>
+		<p>Or, click <a href="register">here</a> to register.</p>
+
+		<input name="username" id="username" type="text" class="input-block-level" placeholder="{% trans 'Username:' %}" >
+		<input name="password" id="password" type="password" class="input-block-level" placeholder="{% trans 'Password:' %}">
+
+		<input type="hidden" name="this_is_the_login_form" value="1" />
+
+		<button class="btn btn-large btn-primary" type="submit">{% trans 'Log in' %}</button>
+
+		<script type="text/javascript">
+			document.getElementById('username').focus()
+		</script>
+	</form>
+</div>
+{% endblock %}
