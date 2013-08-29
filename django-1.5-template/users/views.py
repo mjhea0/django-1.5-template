@@ -12,7 +12,6 @@ def register(request):
 				username=form.cleaned_data['username'],
 				password=form.cleaned_data['password'],
 				email=form.cleaned_data['email'],
-				dob=form.cleaned_data['dob'],
 				)
 
 			new_user.set_password(form.cleaned_data['password'])

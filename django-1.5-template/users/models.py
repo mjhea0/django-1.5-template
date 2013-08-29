@@ -4,7 +4,6 @@ from django.contrib.auth.models import UserManager, AbstractBaseUser, Permission
 class User(AbstractBaseUser, PermissionsMixin):
 	username = models.CharField(max_length=40, unique=True, db_index=True,)
 	email = models.EmailField(max_length=100,unique=True,)
-	dob = models.DateField()
 	date_joined = models.DateField(auto_now=True)
 	is_staff = models.BooleanField(default=False)
 	is_active = models.BooleanField(default=True)
@@ -12,7 +11,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 	objects = UserManager()
 
 	USERNAME_FIELD = 'username'
-	REQUIRED_FIELDS = ['email', 'dob']
+	REQUIRED_FIELDS = ['email']
 
 	def get_full_name(self):
 		return self.username

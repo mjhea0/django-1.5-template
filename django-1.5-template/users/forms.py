@@ -8,12 +8,11 @@ class RegistrationForm(forms.ModelForm):
 
 	class Meta:
 		model = User
-		fields = ('username', 'password', 'email', 'dob')
+		fields = ('username', 'password', 'email')
 		widgets = {
 			'username':			forms.TextInput		(attrs={'class': 'input-block-level', 'placeholder': _('Username')}),
 			'password':			forms.PasswordInput	(attrs={'class': 'input-block-level', 'placeholder': _('Password')}, render_value=True),
 			'email':			forms.TextInput		(attrs={'class': 'input-block-level', 'placeholder': _('Email')}),
-			'dob':				forms.TextInput		(attrs={'class': 'input-block-level', 'placeholder': _('Date of Birth')})
 		}
 
 	def clean(self):

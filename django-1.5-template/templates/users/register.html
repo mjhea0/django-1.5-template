@@ -37,11 +37,6 @@
 
 		<button class="btn btn-large btn-primary" type="submit">{% trans 'Register' %}</button>
 
-		<script type="text/javascript">
-			$('#id_dob').datepicker({format: 'mm/dd/yyyy', autohide: true}).on('changeDate', function(ev) {
-				$('#id_dob').datepicker('hide');
-    		});
-		</script>
 	</form>
 </div>
 {% endblock %}
