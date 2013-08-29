@@ -23,5 +23,5 @@ If you have git and Python installed, you can run the following commands to setu
     $ python manage.py syncdb
     $ python manage.py runserver
     
-    open http://127.0.0.1:8000
+open http://127.0.0.1:8000
     
