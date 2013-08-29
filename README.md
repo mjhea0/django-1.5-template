@@ -42,11 +42,11 @@ Push to Heroku
     
 4. Test locally:
 
-    $ foreman start
+        $ foreman start
     
 5. Udate the requirements:
 
-    $ pip freeze > requirements.txt
+        $ pip freeze > requirements.txt
 
 6. Append the following code to settings.py
 
