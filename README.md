@@ -15,7 +15,7 @@ How to quickly try this on your computer
 If you have git and Python installed, you can run the following commands to setup this project on your computer and run it to see how it works.
 
     $ git clone https://github.com/mjhea0/django-1.5-template.git
-    $ cd django django-1.5-template
+    $ cd django-1.5-template
     $ virtualenv --no-site-packages env
     $ source env/bin/activate
     $ pip install -r requirements.txt
